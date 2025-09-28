@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab2 : 첫번째 방문자 알림</title>
+</head>
+<body>
+    <h1>js_bom BOM 실습</h1>
+
+    <script>
+        console.log("현재 페이지 경로: " + location.pathname);
+
+        if (localStorage.getItem("hasVisited") == null) {
+            alert("환영합니다! 처음 방문해주셨군요 😊");
+
+            localStorage.setItem("hasVisited", "true");
+        } else {
+            console.log("이미 방문한 사용자입니다.");
+        }
+    </script>
+</body>
+</html>
