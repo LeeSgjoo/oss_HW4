@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab1: 카운트 업 & 중지</title>
+    <title>카운트 업 & 중지</title>
     
     <style>
         body {
@@ -47,3 +47,40 @@
         #stopButton:hover {
             background-color: #d32f2f;
         }
+    </style>
+</head>
+<body>
+
+    <h1>카운트 업 & 중지</h1>
+    <p id="counter">0</p>
+    
+    <button id="startButton">시작</button>
+    <button id="stopButton">중지</button>
+
+    <script>
+        const counterElement = document.getElementById('counter');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+
+        let count = 0;
+        let intervalId = null;
+
+        startButton.addEventListener('click', () => {
+            if (intervalId !== null) {
+                return;
+            }
+            
+            intervalId = setInterval(() => {
+                count++;
+                counterElement.textContent = count;
+            }, 1000);
+        });
+
+        stopButton.addEventListener('click', () => {
+            clearInterval(intervalId);
+            intervalId = null;
+        });
+    </script>
+
+</body>
+</html>
